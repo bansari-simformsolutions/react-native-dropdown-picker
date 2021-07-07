@@ -1,14 +1,15 @@
 import {
     StyleSheet
 } from 'react-native';
-
 import Colors from '../../constants/colors';
+
 
 export const ICONS = {
     ARROW_DOWN: require('./icons/arrow-down.png'),
     ARROW_UP: require('./icons/arrow-up.png'),
     TICK: require('./icons/tick.png'),
-    CLOSE: require('./icons/close.png')
+    CLOSE: require('./icons/close.png'),
+    SEARCH: require('./icons/search.png')
 };
 
 export default StyleSheet.create({

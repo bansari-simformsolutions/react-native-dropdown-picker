@@ -1,51 +1,25 @@
 import React, {
-    useCallback,
-    useState,
-    useRef,
-    useEffect,
-    useMemo,
-    memo,
-    Fragment,
+    Fragment, memo, useCallback, useEffect,
+    useMemo, useRef, useState
 } from 'react';
-
 import {
-    View,
-    SafeAreaView,
-    TouchableOpacity,
-    Text,
-    Image,
-    FlatList,
-    TextInput,
-    Dimensions,
-    ScrollView,
-    Modal,
-    ActivityIndicator,
-    Platform,
-    StyleSheet
+    ActivityIndicator, Dimensions, FlatList, Image, Modal, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View
 } from 'react-native';
+import {
+    ASCII_CODE, BADGE_COLORS,
+    BADGE_DOT_COLORS, DROPDOWN_DIRECTION,
+    GET_DROPDOWN_DIRECTION, GET_TRANSLATION, LANGUAGE, LIST_MODE, MODE, RTL_DIRECTION,
+    RTL_STYLE, SCHEMA, TRANSLATIONS
+} from '../constants';
+import Colors from '../constants/colors';
+import THEMES from '../themes';
+import ListEmpty from './ListEmpty';
+import RenderBadgeItem from './RenderBadgeItem';
+import RenderListItem from './RenderListItem';
+
 
 const {height: WINDOW_HEIGHT} = Dimensions.get('window');
 
-import Colors from '../constants/colors';
-import {
-    SCHEMA,
-    GET_TRANSLATION,
-    BADGE_COLORS,
-    BADGE_DOT_COLORS,
-    ASCII_CODE,
-    TRANSLATIONS,
-    MODE,
-    LIST_MODE,
-    DROPDOWN_DIRECTION,
-    GET_DROPDOWN_DIRECTION,
-    LANGUAGE,
-    RTL_DIRECTION,
-    RTL_STYLE
-} from '../constants';
-import THEMES from '../themes';
-import RenderBadgeItem from './RenderBadgeItem';
-import RenderListItem from './RenderListItem';
-import ListEmpty from './ListEmpty';
 
 function Picker({
     value = null,
@@ -1370,6 +1344,21 @@ function Picker({
         <View style={_searchContainerStyle}>
             {
                 searchable && (
+                    <View style={{
+                        borderRadius: 4,
+                        borderColor: Colors.BLACK,
+                        color: Colors.BLACK,
+                        flexDirection: 'row',
+                        padding: 8,
+                        backgroundColor: 'rgba(56, 70, 94, 1)',
+                        alignContent: 'center'
+                    }}>
+                    <Image source={ICON.SEARCH} style={{
+                        width: 19,
+                        height: 19,
+                        alignSelf: 'center',
+                        marginStart: 5
+                    }} />
                     <TextInput
                         value={searchText}
                         onChangeText={_onChangeSearchText}
@@ -1378,6 +1367,7 @@ function Picker({
                         placeholderTextColor={searchPlaceholderTextColor}
                         {...searchTextInputProps}
                     />
+                    </View>
                 )
             }
             {_CloseIconComponent}
