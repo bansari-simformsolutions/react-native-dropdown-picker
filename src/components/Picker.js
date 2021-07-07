@@ -3,7 +3,7 @@ import React, {
     useMemo, useRef, useState
 } from 'react';
 import {
-    ActivityIndicator, Dimensions, FlatList, Image, Modal, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View
+    ActivityIndicator, Dimensions, FlatList, Image, Modal, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View
 } from 'react-native';
 import {
     ASCII_CODE, BADGE_COLORS,
@@ -122,7 +122,12 @@ function Picker({
     disableLocalSearch = false,
     theme = THEMES.DEFAULT,
     searchViewStyle={},
-    searchIconStyle={}
+    searchIconStyle={},
+    modalViewStyle={},
+    modalChildViewStyle={},
+    titleViewStyle={},
+    titleStyle={},
+    closeIconStyle={}
 }) {
     const [necessaryItems, setNecessaryItems] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -1482,10 +1487,16 @@ function Picker({
      */
     const DropDownModalComponent = useMemo(() => (
         <Modal visible={open} presentationStyle="fullScreen" {...modalProps}>
-            <SafeAreaView style={_modalContentContainerStyle}>
+           <View style={modalViewStyle}>
+              <View style={modalChildViewStyle}>
+                <View style={titleViewStyle}>
+                <Text style={titleStyle}>Select Country</Text>
+                <Image source={ICON.CLOSE} style={closeIconStyle} />
+                </View>
                 {SearchComponent}
                 {DropDownFlatListComponent}
-            </SafeAreaView>
+             </View>
+            </View>
         </Modal>
     ), [open, SearchComponent, _modalContentContainerStyle, modalProps]);
 
