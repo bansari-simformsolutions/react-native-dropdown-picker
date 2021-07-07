@@ -1486,12 +1486,14 @@ function Picker({
      * @returns {JSX.Element}
      */
     const DropDownModalComponent = useMemo(() => (
-        <Modal visible={open} presentationStyle="fullScreen" {...modalProps}>
+        <Modal visible={open}  GET_TRANSLATION {...modalProps} transparent>
            <View style={modalViewStyle}>
               <View style={modalChildViewStyle}>
                 <View style={titleViewStyle}>
                 <Text style={titleStyle}>{modalTitle}</Text>
+                <TouchableOpacity style={_closeIconContainerStyle} onPress={onPressClose}>
                 <Image source={ICON.CLOSE} style={closeModalIconStyle} />
+                </TouchableOpacity>
                 </View>
                 {SearchComponent}
                 {DropDownFlatListComponent}
