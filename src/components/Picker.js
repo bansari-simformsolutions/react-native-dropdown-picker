@@ -127,7 +127,8 @@ function Picker({
     modalChildViewStyle={},
     titleViewStyle={},
     titleStyle={},
-    closeModalIconStyle={}
+    closeModalIconStyle={},
+    modalTitle= ''
 }) {
     const [necessaryItems, setNecessaryItems] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -1364,7 +1365,6 @@ function Picker({
                     </View>
                 )
             }
-            {_CloseIconComponent}
         </View>
     ), [
         searchable,
@@ -1490,7 +1490,7 @@ function Picker({
            <View style={modalViewStyle}>
               <View style={modalChildViewStyle}>
                 <View style={titleViewStyle}>
-                <Text style={titleStyle}>Select Country</Text>
+                <Text style={titleStyle}>{modalTitle}</Text>
                 <Image source={ICON.CLOSE} style={closeModalIconStyle} />
                 </View>
                 {SearchComponent}
