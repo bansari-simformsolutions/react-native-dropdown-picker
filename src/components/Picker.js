@@ -127,7 +127,7 @@ function Picker({
     modalChildViewStyle={},
     titleViewStyle={},
     titleStyle={},
-    closeIconStyle={}
+    closeModalIconStyle={}
 }) {
     const [necessaryItems, setNecessaryItems] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -1491,7 +1491,7 @@ function Picker({
               <View style={modalChildViewStyle}>
                 <View style={titleViewStyle}>
                 <Text style={titleStyle}>Select Country</Text>
-                <Image source={ICON.CLOSE} style={closeIconStyle} />
+                <Image source={ICON.CLOSE} style={closeModalIconStyle} />
                 </View>
                 {SearchComponent}
                 {DropDownFlatListComponent}
