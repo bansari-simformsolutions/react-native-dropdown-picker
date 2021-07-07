@@ -120,7 +120,9 @@ function Picker({
     rtl = false,
     dropDownDirection = DROPDOWN_DIRECTION.DEFAULT,
     disableLocalSearch = false,
-    theme = THEMES.DEFAULT
+    theme = THEMES.DEFAULT,
+    searchViewStyle={},
+    searchIconStyle={}
 }) {
     const [necessaryItems, setNecessaryItems] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -1344,21 +1346,8 @@ function Picker({
         <View style={_searchContainerStyle}>
             {
                 searchable && (
-                    <View style={{
-                        borderRadius: 4,
-                        borderColor: Colors.BLACK,
-                        color: Colors.BLACK,
-                        flexDirection: 'row',
-                        padding: 8,
-                        backgroundColor: 'rgba(56, 70, 94, 1)',
-                        alignContent: 'center'
-                    }}>
-                    <Image source={ICON.SEARCH} style={{
-                        width: 19,
-                        height: 19,
-                        alignSelf: 'center',
-                        marginStart: 5
-                    }} />
+                    <View style={searchViewStyle}>
+                    <Image source={ICON.SEARCH} style={searchIconStyle} />
                     <TextInput
                         value={searchText}
                         onChangeText={_onChangeSearchText}
